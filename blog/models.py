@@ -21,3 +21,4 @@ class User(Base):
 
     # Optional: add relationship to Blog
     blogs = relationship("Blog", back_populates="owner")
+    

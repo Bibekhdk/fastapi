@@ -1,4 +1,13 @@
 from pydantic import BaseModel
+from typing import List
+
+# Blog schema for the POST request
+class Blog(BaseModel):
+    title: str
+    body: str
+
+    class Config:
+        from_attributes = True
 
 # Schema for User input (to be used in POST requests)
 class User(BaseModel):
@@ -11,20 +20,17 @@ class Showuser(BaseModel):
     id: int
     name: str
     email: str
+    blogs: List[Blog] = []
 
     class Config:
-        orm_mode = True 
-
-# Blog schema for the POST request
-class Blog(BaseModel):
-    title: str
-    body: str
+        from_attributes = True
 
 # Schema for displaying blog data
 class showBlog(BaseModel):
     id: int
     title: str
     body: str
+    owner: Showuser
 
     class Config:
-        orm_mode = True  # This is important for Pydantic to convert ORM objects to JSON
+        from_attributes = True  # This is important for Pydantic to convert ORM objects to JSON
