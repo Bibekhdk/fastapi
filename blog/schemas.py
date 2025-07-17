@@ -34,3 +34,14 @@ class showBlog(BaseModel):
 
     class Config:
         from_attributes = True  # This is important for Pydantic to convert ORM objects to JSON
+
+
+
+
+class login(BaseModel):
+    username:str
+    password:str
+
+
+    class Config:
+        from_attributes = True
