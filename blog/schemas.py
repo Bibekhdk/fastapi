@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List
+from typing import List, Optional
 
 # Blog schema for the POST request
 class Blog(BaseModel):
@@ -34,9 +35,7 @@ class showBlog(BaseModel):
 
     class Config:
         from_attributes = True  # This is important for Pydantic to convert ORM objects to JSON
-
-
-
+        
 
 class login(BaseModel):
     username:str
@@ -45,3 +44,11 @@ class login(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class Token(BaseModel):
+    access_token:str
+    token_type:str
+
+class TokenData(BaseModel):
+    email: Optional[str]=None
