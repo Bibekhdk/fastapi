@@ -4,7 +4,6 @@ from sqlalchemy.orm import Session
 from .. import schemas, database, models, token
 from ..hashing import Hash
 from datetime import timedelta
-
 from ..token import ACCESS_TOKEN_EXPIRE_MINUTES
 
 router = APIRouter(tags=['authentication'])

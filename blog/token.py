@@ -20,7 +20,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 def verify_token(token: str, credentials_exception):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub")
+        email: str = payload.get("sub") 
         if email is None:
             raise credentials_exception
         return email
