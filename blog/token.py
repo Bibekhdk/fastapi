@@ -1,7 +1,6 @@
 from datetime import timedelta, datetime
 from jose import JWTError, jwt
 from typing import Optional
-from . import schemas
 
 SECRET_KEY = "dshfvsfvhsfsfnskfk1i12i"
 ALGORITHM = "HS256"
@@ -20,9 +19,9 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
 def verify_token(token: str, credentials_exception):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        email: str = payload.get("sub") 
+        email: str = payload.get("sub")
         if email is None:
             raise credentials_exception
-        return email
+        return payload   # ✅ <-- Return the WHOLE decoded payload dict!
     except JWTError:
         raise credentials_exception
