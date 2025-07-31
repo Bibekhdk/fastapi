@@ -7,7 +7,7 @@ import os
 # SQLALCHEMY_DATABASE_URL = 'sqlite:////home/bibek/Desktop/fastapi/blog.db'
 
 # Default to 'blog.db' in the current directory if the environment variable is not set
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:////tmp/blog.db")
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./blog.db")
 
 
 # Set up the engine, session, and Base
