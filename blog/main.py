@@ -3,12 +3,12 @@ from . import models
 from .database import engine 
 from .routers import blog,user , authentication
 
+#create db tables
+models.Base.metadata.create_all(bind=engine)
+
 app = FastAPI()
 
 
-
-# Create DB tables
-models.Base.metadata.create_all(bind=engine)
 
 
 
