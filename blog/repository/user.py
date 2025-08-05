@@ -14,7 +14,6 @@ def create(request:schemas.User,db:Session):
     db.refresh(new_user)
     return new_user
 
-
 def get(id: int, db: Session ):
     user = db.query(models.User).filter(models.User.id == id).first()
     if not user:

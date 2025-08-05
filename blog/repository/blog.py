@@ -10,7 +10,7 @@ def create(request: schemas.Blog, db: Session, current_user: schemas.User):
     new_blog = models.Blog(
         title=request.title,
         body=request.body,
-        user_id=current_user.id  # ✅ FIX: use logged-in user!
+        user_id=current_user.id 
     )
     db.add(new_blog)
     db.commit()
