@@ -15,7 +15,7 @@ function Login() {
     formData.append('password', password);
 
     try {
-      const res = await axios.post('http://localhost:8000/login', formData, {
+      const res = await axios.post('https://fastapi-1-upuq.onrender.com/login', formData, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
